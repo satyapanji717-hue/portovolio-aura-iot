@@ -1,0 +1,674 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portfolio | Kezia Aura Nafiza</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #0f0f14;
+            color: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(15, 15, 20, 0.85);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .nav-container {
+            max-width: 1150px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .logo span {
+            color: #d78cff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ddd;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #d78cff;
+        }
+
+        /* ================= HOME ================= */
+
+        .home {
+            min-height: 100vh;
+            max-width: 1150px;
+            margin: auto;
+            padding: 150px 25px 80px;
+
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .small-title {
+            color: #d78cff;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .home h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(50px, 7vw, 85px);
+            line-height: 0.95;
+            margin-bottom: 25px;
+        }
+
+        .home h1 span {
+            color: #d78cff;
+        }
+
+        .home p {
+            color: #b7b7bd;
+            max-width: 600px;
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            padding: 13px 24px;
+            border-radius: 30px;
+            background: #d78cff;
+            color: #111;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(215,140,255,0.25);
+        }
+
+        .profile-card {
+            position: relative;
+            padding: 15px;
+            background: linear-gradient(145deg, #25232d, #15151b);
+            border-radius: 30px;
+            transform: rotate(3deg);
+            transition: 0.4s;
+        }
+
+        .profile-card:hover {
+            transform: rotate(0deg);
+        }
+
+        .profile-card img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 20px;
+            display: block;
+        }
+
+        /* ================= GENERAL ================= */
+
+        section {
+            max-width: 1150px;
+            margin: auto;
+            padding: 100px 25px;
+        }
+
+        .section-label {
+            color: #d78cff;
+            font-size: 13px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            margin-bottom: 45px;
+        }
+
+        /* ================= BIODATA ================= */
+
+        .bio-wrapper {
+            display: grid;
+            grid-template-columns: 0.7fr 1.3fr;
+            gap: 25px;
+        }
+
+        .bio-intro {
+            background: #191920;
+            border-radius: 25px;
+            padding: 35px;
+            border: 1px solid #292932;
+        }
+
+        .bio-intro h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .bio-intro p {
+            color: #aaa;
+        }
+
+        .bio-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .bio-item {
+            background: #191920;
+            padding: 22px;
+            border-radius: 18px;
+            border: 1px solid #292932;
+            transition: 0.3s;
+        }
+
+        .bio-item:hover {
+            border-color: #d78cff;
+            transform: translateY(-3px);
+        }
+
+        .bio-item small {
+            display: block;
+            color: #888;
+            margin-bottom: 5px;
+        }
+
+        .bio-item strong {
+            color: #fff;
+            font-size: 15px;
+        }
+
+        /* ================= ALASAN ================= */
+
+        .reason {
+            margin-top: 25px;
+            background: linear-gradient(135deg, #241a2d, #191920);
+            border-radius: 25px;
+            padding: 35px;
+            border: 1px solid #3a2944;
+        }
+
+        .reason h3 {
+            color: #d78cff;
+            margin-bottom: 10px;
+        }
+
+        .reason p {
+            color: #c7c7ca;
+        }
+
+        /* ================= GALERI ================= */
+
+        .gallery {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            grid-auto-rows: 220px;
+            gap: 15px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 20px;
+            background: #191920;
+        }
+
+        .gallery-item:first-child {
+            grid-row: span 2;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact {
+            text-align: center;
+            background: linear-gradient(145deg, #191920, #131319);
+            border-radius: 35px;
+            padding: 70px 30px;
+        }
+
+        .contact h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .contact p {
+            color: #aaa;
+            margin-bottom: 30px;
+        }
+
+        .socials {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .socials a {
+            text-decoration: none;
+            color: white;
+            padding: 12px 22px;
+            border: 1px solid #38383f;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+
+        .socials a:hover {
+            background: #d78cff;
+            color: #111;
+            border-color: #d78cff;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            text-align: center;
+            padding: 35px 20px;
+            color: #777;
+            border-top: 1px solid #25252c;
+            font-size: 14px;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 850px) {
+
+            .nav-links {
+                gap: 13px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .home {
+                grid-template-columns: 1fr;
+                padding-top: 130px;
+            }
+
+            .profile-card {
+                max-width: 400px;
+                margin: auto;
+            }
+
+            .profile-card img {
+                height: 400px;
+            }
+
+            .bio-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .gallery-item:first-child {
+                grid-row: span 1;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            .nav-container {
+                padding: 15px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .nav-links {
+                gap: 10px;
+            }
+
+            .nav-links a {
+                font-size: 10px;
+            }
+
+            .home {
+                padding-left: 18px;
+                padding-right: 18px;
+            }
+
+            .home h1 {
+                font-size: 52px;
+            }
+
+            section {
+                padding: 70px 18px;
+            }
+
+            .section-title {
+                font-size: 38px;
+            }
+
+            .bio-list {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+                grid-auto-rows: 250px;
+            }
+
+            .contact h2 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav>
+        <div class="nav-container">
+
+            <div class="logo">
+                Aura<span>.</span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#biodata">Biodata</a></li>
+                <li><a href="#galeri">Galeri</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <!-- ================= HOME ================= -->
+
+    <main>
+
+        <section class="home" id="home">
+
+            <div>
+
+                <div class="small-title">
+                    HELLO, I'M
+                </div>
+
+                <h1>
+                    Kezia<br>
+                    Aura <span>Nafiza.</span>
+                </h1>
+
+                <p>
+                    Mahasiswa D4 Teknologi Rekayasa Perangkat Lunak
+                    yang tertarik dengan dunia teknologi dan suka
+                    menuangkan ide melalui cerita.
+                </p>
+
+                <a href="#biodata" class="btn">
+                    Kenal Lebih Dekat →
+                </a>
+
+            </div>
+
+
+            <div class="profile-card">
+
+                <!-- GANTI FOTO UTAMA -->
+                <img src="foto1.jpeg" alt="Foto Kezia Aura Nafiza">
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= BIODATA ================= -->
+
+        <section id="biodata">
+
+            <div class="section-label">
+                ABOUT ME
+            </div>
+
+            <h2 class="section-title">
+                Sedikit tentang saya.
+            </h2>
+
+            <div class="bio-wrapper">
+
+                <div class="bio-intro">
+
+                    <h3>Hi, I'm Aura 👋</h3>
+
+                    <p>
+                        Saya Kezia Aura Nafiza, biasa dipanggil Aura.
+                        Saya merupakan mahasiswa D4 Teknologi Rekayasa
+                        Perangkat Lunak yang sedang belajar dan berkembang
+                        di dunia teknologi.
+                    </p>
+
+                </div>
+
+
+                <div class="bio-list">
+
+                    <div class="bio-item">
+                        <small>NIM</small>
+                        <strong>2655011006</strong>
+                    </div>
+
+                    <div class="bio-item">
+                        <small>Nama Lengkap</small>
+                        <strong>Kezia Aura Nafiza</strong>
+                    </div>
+
+                    <div class="bio-item">
+                        <small>Nama Panggilan</small>
+                        <strong>Aura</strong>
+                    </div>
+
+                    <div class="bio-item">
+                        <small>No. Urut Kelompok</small>
+                        <strong>13</strong>
+                    </div>
+
+                    <div class="bio-item">
+                        <small>Nama Kelompok</small>
+                        <strong>ENUM</strong>
+                    </div>
+
+                    <div class="bio-item">
+                        <small>Alamat Asal</small>
+                        <strong>Jl. Jawa, Pematangsiantar</strong>
+                    </div>
+
+                    <div class="bio-item">
+                        <small>Asal Sekolah</small>
+                        <strong>SMA Sultan Agung</strong>
+                    </div>
+
+                    <div class="bio-item">
+                        <small>Program Studi</small>
+                        <strong>D4 Teknologi Rekayasa Perangkat Lunak</strong>
+                    </div>
+
+                    <div class="bio-item">
+                        <small>Hobi</small>
+                        <strong>Membuat cerita</strong>
+                    </div>
+
+                    <div class="bio-item">
+                        <small>Cita-cita</small>
+                        <strong>Menjadi profesional di bidang teknologi</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="reason">
+
+                <h3>
+                    Mengapa memilih Teknik Informatika?
+                </h3>
+
+                <p>
+                    Saya memilih jurusan Teknik Informatika karena
+                    prospek kerja di bidang teknologi cukup menjanjikan.
+                    Selain itu, perkembangan teknologi yang semakin pesat
+                    membuat saya ingin mempelajari lebih banyak tentang
+                    dunia digital dan bagaimana teknologi bisa digunakan
+                    untuk membuat sesuatu yang bermanfaat.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= GALERI ================= -->
+
+        <section id="galeri">
+
+            <div class="section-label">
+                MY GALLERY
+            </div>
+
+            <h2 class="section-title">
+                Beberapa momen saya.
+            </h2>
+
+            <div class="gallery">
+
+                <!-- GANTI DENGAN FOTO SENDIRI -->
+
+                <div class="gallery-item">
+                    <img src="foto2.jpeg" alt="Foto kegiatan 1">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="foto3.jpeg" alt="Foto kegiatan 2">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="foto4.jpeg" alt="Foto kegiatan 3">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= KONTAK ================= -->
+
+        <section id="kontak">
+
+            <div class="contact">
+
+                <div class="section-label">
+                    LET'S CONNECT
+                </div>
+
+                <h2>
+                    Mari terhubung!
+                </h2>
+
+                <p>
+                    Kamu bisa menghubungi atau mengikuti saya
+                    melalui beberapa platform berikut.
+                </p>
+
+                <div class="socials">
+
+                    <!-- GANTI LINK DI BAWAH -->
+
+                    <a href="https://www.instagram.com/ziaauraa?igsh=cmZleTVqMWpiZWFj" target="_blank">
+                        Instagram
+                    </a>
+
+                    <a href="https://linkedin.com/" target="_blank">
+                        LinkedIn
+                    </a>
+
+                    <a href="mailto:emailkamu@gmail.com">
+                        Email
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        © 2026 Kezia Aura Nafiza · Portfolio
+
+    </footer>
+
+</body>
+</html>
+```
